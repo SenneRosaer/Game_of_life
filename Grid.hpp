@@ -15,12 +15,30 @@ private:
     std::array<std::array<std::shared_ptr<Cell>,COL>,ROW> m_grid;
 
 public:
+    /**
+     * Constructor which makes every cell of the matrix a dead cell to start with
+     */
     Grid();
 
+    /**
+     * Adds a cell to a certain spot in the grid
+     * @param rowIndex
+     * @param colIndex
+     * @param cell
+     */
     void gridObject(int rowIndex,int colIndex, const std::shared_ptr<Cell>& cell);
 
+    /**
+     * Returns a certain cell
+     * @param row
+     * @param col
+     * @return
+     */
     std::shared_ptr<Cell> getCell(int row,int col);
 
+    /**
+     * Prints the grid using the overloaded << operator from cell
+     */
     void print();
 };
 
