@@ -62,6 +62,9 @@ void Game<ROW,COL>::evolve() {
 
 template <size_t ROW, size_t COL>
 void Game<ROW,COL>::operator()(int a, int b) {
+    if(a < 0 or a > ROW or b < 0 or b > COL){
+        throw std::out_of_range("Given locations are out of bound");
+    }
     m_grid.gridObject(a,b,std::make_shared<AliveCell>());
 }
 
